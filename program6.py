@@ -1,34 +1,36 @@
 '''Q6)Write a program to implement Depth First Search Traversal.'''
-from collections import defaultdict
 
 class Graph:
-def _init_(self):
-        self.graph = defaultdict(list)
+  def __init__(self):
+      self.graph = {}
 
-    def add_edge(self, u, v):
-        self.graph[u].append(v)
+  def add_edge(self, u, v):
+      if u not in self.graph:
+          self.graph[u] = []
+      self.graph[u].append(v)
 
-    def dfs_util(self, vertex, visited):
-        visited.add(vertex)
-        print(vertex, end=' ')
+  def dfs(self, start, visited=None):
+      if visited is None:
+          visited = set()
 
-        for neighbor in self.graph[vertex]:
-            if neighbor not in visited:
-                self.dfs_util(neighbor, visited)
+      if start not in visited:
+          print(start, end=" ")
+          visited.add(start)
 
-    def dfs(self, start):
-        visited = set()
-        print("Depth-First Traversal:")
-        self.dfs_util(start, visited)
+          for neighbor in self.graph.get(start, []):
+              self.dfs(neighbor, visited)
 
 # Example usage:
-if __name__ == "_main_":
-    g = Graph()
-    g.add_edge (0, 1)
-    g.add_edge(0, 2)
-    g.add_edge(1, 2)
-    g.add_edge(2, 0)
-    g.add_edge(2, 3)
-    g.add_edge(3, 3)
-    start_vertex = 2
-g.dfs(start_vertex)
+if __name__ == "__main__":
+  # Create a sample graph
+  g = Graph()
+  g.add_edge(1, 2)
+  g.add_edge(1, 3)
+  g.add_edge(2, 4)
+  g.add_edge(2, 5)
+  g.add_edge(3, 6)
+  g.add_edge(3, 7)
+
+  # Perform DFS starting from node 1
+  print("DFS starting from node 1:")
+  g.dfs(1)
