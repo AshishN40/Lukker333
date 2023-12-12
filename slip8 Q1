@@ -12,5 +12,5 @@ def string_test(s):
   print("Number of Upper_case String is:", d["UPPER_CASE"])
   print("Number of Lower_case String is:", d["LOWER_CASE"])
 
-
-string_test('Lab on Ai')
+st= input("Enter your String you want to count-->");
+string_test(st)
