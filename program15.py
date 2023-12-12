@@ -1,4 +1,6 @@
-Q15)Write a computer program to play tic-tac-toe game. (Game Theory)
+"""Q15)Write a computer program to play tic-tac-toe game. (Game Theory)"""
+# Tic-Tac-Toe Game
+
 # Initialize the board
 board = [' ' for _ in range(9)]
 
@@ -34,23 +36,22 @@ def make_move(player, position):
 current_player = 'X'
 while True:
     print_board()
-print(f"Player {current_player}'s turn. Enter your move (0-8): ")
+    print(f"Player {current_player}'s turn. Enter your move (0-8): ")
     move = int(input())
 
-if move < 0 or move > 8 or board[move] != ' ':
-print("Invalid move. Try again.")
+    if move < 0 or move > 8 or board[move] != ' ':
+        print("Invalid move. Try again.")
         continue
 
     make_move(current_player, move)
 
     if check_winner(current_player):
         print_board()
-print(f"Player {current_player} wins!")
+        print(f"Player {current_player} wins!")
         break
     elif is_board_full():
         print_board()
-print("It's a tie!")
+        print("It's a tie!")
         break
 
     current_player = 'O' if current_player == 'X' else 'X'
-
