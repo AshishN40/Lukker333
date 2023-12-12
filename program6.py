@@ -1,4 +1,4 @@
-Q6)Write a program to implement Depth First Search Traversal.
+'''Q6)Write a program to implement Depth First Search Traversal.'''
 from collections import defaultdict
 
 class Graph:
