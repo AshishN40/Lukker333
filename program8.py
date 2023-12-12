@@ -1,4 +1,4 @@
-Q8)Write a program to implement K -Nearest Neighbor algorithm
+'''Q8)Write a program to implement K -Nearest Neighbor algorithm'''
 import plotly.graph_objects as go
 import numpy as np
 from sklearn.datasets import make_moons
